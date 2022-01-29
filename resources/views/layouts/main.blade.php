@@ -8,10 +8,12 @@
     <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css' integrity='sha512-Fo3rlrZj/k7ujTnHg4CGR2D7kSs0v4LLanw2qksYuRlEzO+tcaEPQogQ0KaoGN26/zrn20ImR1DfuLWnOo7aBA==' crossorigin='anonymous'/>
     <title>Jokes</title>
 </head>
-<body>
+<body class="d-flex flex-column vh-100">
     @include('partials.header')
 
-    @yield('main-content')
+    <main class="py-5 my-4 flex-grow-1 d-flex align-items-center">
+        @yield('main-content')
+    </main>
 
     @include('partials.footer')
 </body>
