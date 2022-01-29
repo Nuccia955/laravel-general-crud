@@ -25,7 +25,7 @@ class JokeController extends Controller
      */
     public function create()
     {
-        //
+        return view('jokes.create');
     }
 
     /**
@@ -36,7 +36,13 @@ class JokeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $data = $request->all();
+        
+        $new_joke = new Joke();
+        $new_joke->fill($data);
+        $new_joke->save();
+
+        return redirect()->route('jokes.show', $new_joke->id);
     }
 
     /**
@@ -56,9 +62,9 @@ class JokeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Joke $joke)
     {
-        //
+        return view('jokes.edit', compact('joke'));
     }
 
     /**
@@ -68,9 +74,12 @@ class JokeController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Joke $joke)
     {
-        //
+        $data = $request->all();
+        $joke->update($data);
+
+        return redirect()->route('jokes.show', $joke->id);
     }
 
     /**

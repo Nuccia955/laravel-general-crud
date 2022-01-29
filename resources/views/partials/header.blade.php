@@ -14,6 +14,9 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('jokes.index') }}">Jokes</a>
                     </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('jokes.create') }}">Add joke</a>
+                    </li>
                 </ul>
             </div>
         </div>

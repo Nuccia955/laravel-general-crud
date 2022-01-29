@@ -14,7 +14,7 @@
         {{ $joke->likes }}
     </div>
     <div class="actions d-flex justify-content-center">
-        <a href="" class="btn btn-warning me-4 px-4 py-1">Edit</a>
+        <a href="{{ route('jokes.edit', $joke->id) }}" class="btn btn-warning me-4 px-4 py-1">Edit</a>
         <a href="" class="btn btn-danger px-4 py-1">Delete</a>
     </div>
 </section>
