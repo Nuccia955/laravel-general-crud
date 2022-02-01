@@ -93,4 +93,24 @@ class JokeController extends Controller
         $joke->delete();
         return redirect()->route('jokes.index');
     }
+
+    public function getTrash()
+    {
+        $trashed_jokes = Joke::onlyTrashed()->get();
+        return view('jokes.trash', compact('trashed_jokes'));
+    }
+
+    public function restore($id)
+    {
+        Joke::withTrashed()->find($id)->restore();
+        return redirect()->route('jokes.index');
+    }
+
+    public function forceDelete($id) {
+        Joke::withTrashed()->find($id)->forceDelete();
+
+        return redirect()->route('jokes.index');
+    }
 }
+
+

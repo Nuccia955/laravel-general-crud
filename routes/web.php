@@ -16,3 +16,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'HomeController@index')->name('home');
 
 Route::resource('/jokes', 'JokeController');
+
+Route::get('/trash', 'JokeController@getTrash')->name('trash');
+
+Route::match(['get', 'post'], '/jokes-restore/{id}', 'JokeController@restore')->name('restore');
+
+Route::match(['get', 'delete'], '/jokes-delete/{id}', 'JokeController@forceDelete')->name('forceDelete');

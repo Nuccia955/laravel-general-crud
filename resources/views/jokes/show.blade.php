@@ -15,10 +15,11 @@
     </div>
     <div class="actions d-flex justify-content-center">
         <a href="{{ route('jokes.edit', $joke->id) }}" class="btn btn-warning me-4 px-4 py-1">Edit</a>
+
         <form action="{{ route('jokes.destroy', $joke->id) }}" method="POST">
             @csrf
             @method('DELETE')
-            <button class="btn btn-danger" type="submit">Delete</button>
+            <button class="btn btn-danger" type="submit">Add to trash</button>
         </form>
     </div>
 </section>
